@@ -14,11 +14,12 @@ plugins=(
     you-should-use
     history
     zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 source $ZSH/oh-my-zsh.sh
 autoload -U compinit && compinit
 #source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.aliases
 export EDITOR=vim
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

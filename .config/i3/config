@@ -1,6 +1,21 @@
 #Start key as mod
 set $mod Mod4
 
+# autostart
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id hsetroot -fill ~/black.png
+exec_always --no-startup-id numlockx on
+exec_always --no-startup-id setxkbmap -layout pl -option caps:escape
+exec --no-startup-id nm-applet
+exec_always feh --bg-fill $HOME/repo/dotfiles/tapeta.jpeg
+font xft:DejaVu Sans Mono for Powerline #8
+
+# direction keys
+set $up k
+set $down j
+set $left h
+set $right l
+
 # Gaps
 for_window [class=".*"] border pixel 1
 gaps outer 0
@@ -15,21 +30,6 @@ bindsym $Mod+Control+plus        gaps inner all     plus  5
 bindsym $Mod+Control+minus       gaps inner all     minus 5
 bindsym $Mod+Control+Shift+plus  gaps outer all     plus  5
 bindsym $Mod+Control+Shift+minus gaps outer all     minus 5
-
-# autostart
-#exec --no-startup-id ~/.config/i3/scripts/defaultpc.sh
-#exec_always --no-startup-id hsetroot -fill ~/tapeta.jpg
-exec_always --no-startup-id hsetroot -fill ~/black.png
-#exec --no-startup-id compton -CGb
-exec_always --no-startup-id numlockx on
-exec_always --no-startup-id setxkbmap -layout pl -option caps:escape
-font xft:DejaVu Sans Mono for Powerline #8
-
-# direction keys
-set $up k
-set $down j
-set $left h
-set $right l
 
 # audio
 bindsym XF86AudioPlay        exec --no-startup-id playerctl play-pause
@@ -131,10 +131,10 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym $Mod+e exec nautilus
-bindsym $Mod+q exec ~/.config/scripts/lock.sh
-bindsym $Mod+w exec google-chrome-stable
+bindsym $Mod+w exec microsoft-edge-stable
+bindsym $Mod+q exec betterlockscreen -l
 bindsym $Mod+Return exec kitty
-bindsym $Mod+Shift+Return exec rofi -show run
+bindsym $Mod+Shift+Return exec rofi --no-startup-id rofi -show drun -theme Monokai -icon-theme"Tela-circle" -show-icons
 bindsym $Mod+Tab exec rofi -show window
 focus_follows_mouse no
 
@@ -148,12 +148,3 @@ set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
  client.focused #555555 #555555 #ffffff #2e9ef4     #CC0000
-bar {
-    separator_symbol ":"
-    font xft:DejaVu Sans Mono for Powerline 10
-    status_command i3blocks
-    position top
-    mode dock
-    modifier $mod
-    i3bar_command i3bar --transparency
-}
