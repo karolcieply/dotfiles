@@ -317,6 +317,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'powerline/powerline'
 Plug 'chrisbra/Colorizer'
 Plug 'tomasiser/vim-code-dark'
+Plug 'ap/vim-css-color'
 call plug#end()
 " let g:user_emmet_leader_key='<C-Z>'
 "set tabstop=4

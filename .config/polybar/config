@@ -18,17 +18,17 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
+background = #000
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
-primary = #ffb52a
+primary = #ff0000
 secondary = #e60053
 alert = #bd2c40
 
-[bar/alg-example]
-;monitor = ${env:MONITOR:HDMI-1}
+[bar/example]
+monitor = ${env:MONITOR:}
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -58,8 +58,7 @@ font-2 = siji:pixelsize=10;1
 modules-left = i3 xwindow
 #modules-center = mpd
 ;modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
-modules-right = pulseaudio backlight xkeyboard memory cpu temperature battery eth date powermenu
-
+modules-right =  pulseaudio backlight-acpi filesystem memory cpu battery eth wlan date
 tray-position = right
 tray-padding = 2
 ;tray-background = #0063ff
@@ -108,33 +107,12 @@ label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
-[module/bspwm]
-type = internal/bspwm
-
-label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
-
-label-occupied = %index%
-label-occupied-padding = 2
-
-label-urgent = %index%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
-
-; Separator in between workspaces
-; label-separator = |
-
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
+strip-wsnumbers = true
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
@@ -144,17 +122,18 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %name%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+; label == %index% to numerki
+label-unfocused = %name%
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %name%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
@@ -200,6 +179,7 @@ bar-empty-foreground = ${colors.foreground-alt}
 
 [module/backlight]
 type = internal/backlight
+format-underline = #999
 
 ; Use the following command to list available cards:
 ; $ ls -1 /sys/class/backlight/
@@ -209,7 +189,7 @@ card = amdgpu_bl0
 ; Use the `/sys/class/backlight/actual-brightness` file
 ; rather than the regular `brightness` file.
 ; Defaults to true unless the specified card is an amdgpu backlight.
-use-actual-brightness = true
+use-actual-brightness = fale
 
 ; Enable changing the backlight with the scroll wheel
 ; NOTE: This may require additional configuration on some systems. Polybar will
