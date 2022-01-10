@@ -311,6 +311,7 @@ endfunction
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'mattn/emmet-vim'
+Plug 'davidhalter/jedi-vim'
 " Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'https://tpope.io/vim/surround.git'
 Plug 'jiangmiao/auto-pairs'

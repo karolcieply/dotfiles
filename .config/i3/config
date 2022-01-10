@@ -8,7 +8,7 @@ exec_always --no-startup-id numlockx on
 exec_always --no-startup-id setxkbmap -layout pl -option caps:escape
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager --daemon
-exec_always feh --bg-fill $HOME/repo/dotfiles/rotated.png
+exec_always feh --bg-fill $HOME/repo/dotfiles/wallpaper.png
 font xft:DejaVu Sans Mono for Powerline #8
 
 # direction keys
@@ -132,6 +132,7 @@ bindsym $mod+Shift+r restart
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym $Mod+e exec kitty ranger
+bindsym $Mod+Shift+e exec nautilus
 bindsym $Mod+w exec microsoft-edge-stable
 bindsym $Mod+q exec systemctl suspend && betterlockscreen -l
 bindsym $Mod+Return exec kitty
