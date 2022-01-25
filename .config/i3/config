@@ -8,8 +8,8 @@ exec_always --no-startup-id numlockx on
 exec_always --no-startup-id setxkbmap -layout pl -option caps:escape
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager --daemon
-exec_always feh --bg-fill $HOME/repo/dotfiles/wallpaper.png
-font xft:DejaVu Sans Mono for Powerline #8
+exec_always feh --bg-fill $HOME/repo/dotfiles/tapeta.jpeg
+# font xft:DejaVu Sans Mono for Powerline #8
 
 # direction keys
 set $up k
